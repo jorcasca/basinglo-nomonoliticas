@@ -14,11 +14,3 @@ def buscar_itinerarios(odos: list[Odo], parametros: ParametroBusca) -> list[Itin
     itinerarios.append([proveedor.obtener_itinerarios(odos, parametros) for proveedor in proveedores])
 
     return filtrar_mejores_itinerarios(itinerarios)
-
-# origen=Aeropuerto(codigo=CodigoIATA(codigo="CPT"), nombre="Cape Town International")
-# destino=Aeropuerto(codigo=CodigoIATA(codigo="JFK"), nombre="JFK International Airport")
-# legs=[Leg(origen=origen, destino=destino)]
-# segmentos = [Segmento(legs)]
-# ruta = Odo(segmentos=segmentos)
-# itinerarios = buscar_itinerarios(ruta, ParametroBusca(pasajeros=list()))
-# print(itinerarios)
