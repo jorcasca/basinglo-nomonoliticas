@@ -70,7 +70,7 @@ class Cliente():
         """
         try:
             if self._id:
-                raise Exception('ID es inmutable!')
+                raise ValueError('ID es inmutable!')
         except AttributeError as error:
             self._id = id
 
