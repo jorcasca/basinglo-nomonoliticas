@@ -71,7 +71,7 @@ class Cliente():
         try:
             if self._id:
                 raise ValueError('ID es inmutable!')
-        except AttributeError as error:
+        except AttributeError:
             self._id = id
 
 # Ejecute los siguientes fragmentos de código para ver el comportamiento de las entidades con IDs inmutables
