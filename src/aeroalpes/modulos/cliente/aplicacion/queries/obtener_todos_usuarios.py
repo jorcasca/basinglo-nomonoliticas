@@ -6,5 +6,5 @@ class ObtenerTodosUsuarios(Query):
 
 class ObtenerTodosUsuariosHandler(QueryHandler):
 
-    def handle() -> ResultadoQuery:
+    def handle(self) -> ResultadoQuery:
         ...
