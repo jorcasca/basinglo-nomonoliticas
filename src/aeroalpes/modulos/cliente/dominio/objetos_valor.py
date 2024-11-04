@@ -29,6 +29,5 @@ class Rut(ObjetoValor):
     ciudad: Ciudad
 
 class MetodosPago(ObjetoValor):
-    # TODO
-    ...
+    print("test")
 

@@ -95,6 +95,10 @@ class UnidadTrabajoPulsar(UnidadTrabajo):
         self._limpiar_batches()
 
     def rollback(self, index=None):
+        # Vea los métodos agregar_evento de la clase AgregacionRaiz
+        # A cada evento que se agrega, se le asigna un evento de compensación
+        # Piense como podría hacer la implementación
+        
         # Si ocurre un error, se ejecutan eventos de compensación
         if index is not None:
             logging.info(f'Revirtiendo desde el evento en el índice {index}')
