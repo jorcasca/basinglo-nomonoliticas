@@ -8,8 +8,8 @@ from flask import Response
 from aeroalpes.modulos.vuelos.aplicacion.mapeadores import MapeadorReservaDTOJson
 from aeroalpes.modulos.vuelos.aplicacion.comandos.crear_reserva import CrearReserva
 from aeroalpes.modulos.vuelos.aplicacion.queries.obtener_reserva import ObtenerReserva
+from aeroalpes.seedwork.aplicacion.comandos import ejecutar_commando
 from aeroalpes.seedwork.aplicacion.queries import ejecutar_query
-from aeroalpes.seedwork.infraestructura.despachadores import despachador_eventos  # Importa el despachador de eventos
 
 bp = api.crear_blueprint('vuelos', '/vuelos')
 
@@ -31,8 +31,9 @@ def reservar_usando_comando():
             reserva_dto.itinerarios
         )
         
-        # Enviar el comando al broker de eventos de forma asíncrona usando el despachador
-        despachador_eventos.publicar_comando(comando)
+        # Reemplaze es todo código sincrono y use el broker de eventos para propagar este comando de forma asíncrona
+        # Revise la clase Despachador de la capa de infraestructura
+        ejecutar_commando(comando)
         
         return Response('{}', status=202, mimetype='application/json')
     except ExcepcionDominio as e:
